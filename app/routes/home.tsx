@@ -1,19 +1,13 @@
 import type { Route } from "./+types/home";
 import { Link } from "react-router";
+import type { Product } from "../types"
+import  Header  from "../components/Header"
 
 export function meta({}: Route.MetaArgs) {
   return [
     {title: "Ltp Store"},
     {name: "description", content: "Online Store"},
   ];
-}
-
-type Product = {
-  id: number;
-  title: string;
-  price: number;
-  thumbnail: string;
-  description: string;
 }
 
 export async function loader() {
