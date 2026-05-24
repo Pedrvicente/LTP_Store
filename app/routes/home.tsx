@@ -19,7 +19,7 @@ export async function loader() {
 export default function Home({loaderData}: Route.ComponentProps) {
   return (
     <main className="mx-auto px-6 py-8">
-      <h1 className="text-xl font-bold">Our Products</h1>
+      <h1 className="text-7xl font-bold mb-8">Our Products</h1>
       <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
         {loaderData.products.map((p) => (
           <ProductCard key={p.id} product={p} />
