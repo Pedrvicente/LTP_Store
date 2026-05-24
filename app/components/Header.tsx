@@ -12,7 +12,7 @@ export default function Header() {
 
 				{/* Closed Menu */}
 				<div className={`flex items-center justify-between ${isOpen ? "rounded-t-lg rounded-b-none" : "rounded-lg"} bg-[#EDE9E6] px-6 py-4 transition-all duration-250`}>
-					<span className="text-sm uppercase font-medium font-sans-serif">LTP Store</span>
+					<span className="text-sm uppercase font-medium">LTP Store</span>
 					<Link to="/cart" className="font-medium text-sm uppercase">Cart (0)</Link>
 					<button
 						onClick={() => setIsOpen(!isOpen)}
