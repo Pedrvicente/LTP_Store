@@ -14,6 +14,7 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
       <div className="absolute top-6 right-6 md:top-12 md:right-12 z-10">
         <Link 
           to="/" 
+          viewTransition
           className="bg-[#EDE9E6] text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase hover:bg-[#BABF94] transition-colors">
           Close
         </Link>
