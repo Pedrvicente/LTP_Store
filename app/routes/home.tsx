@@ -1,13 +1,40 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { Link } from "react-router";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    {title: "Ltp Store"},
+    {name: "description", content: "Online Store"},
   ];
 }
 
-export default function Home() {
-  return <Welcome />;
+type Product = {
+  id: number;
+  title: string;
+  price: number;
+  thumbnail: string;
+  description: string;
+}
+
+export async function loader() {
+  const res = await fetch("https://dummyjson.com/products?limit=12");
+  const data = await res.json();
+  return {products: data.products as Product[]};
+}
+
+export default function Home({loaderData}: Route.ComponentProps) {
+  return (
+    <main>
+      <h1>Products</h1>
+      <ul>
+        {loaderData.products.map((p) => (
+          <li key={p.id}>
+            <Link to={`/products/${p.id}`}>
+              {p.title} — {p.price}€
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </main>
+  )
 }
