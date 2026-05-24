@@ -12,4 +12,10 @@ body {
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.8, 0, 0.2, 1);
+  }
 }

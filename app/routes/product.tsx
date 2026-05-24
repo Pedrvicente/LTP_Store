@@ -23,7 +23,7 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
       <main className="mx-auto flex flex-col-reverse md:flex-row min-h-[80vh] gap-12 md:gap-24 items-center md:items-stretch pt-12 md:pt-0">
         
         {/* Info Column */}
-        <div className="rounded-2xl bg-white p-10 w-full md:w-[35%] flex flex-col justify-between">
+        <div className="rounded-2xl bg-[#EDE9E6] p-10 w-full md:w-[35%] flex flex-col justify-between">
           
           {/* Title and Add to Cart Button */}
           <div className="mb-12">
@@ -67,6 +67,7 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
             <img
               src={product.thumbnail}
               alt={product.title}
+              style={{viewTransitionName: `product-img-${product.id}`}}
               className="max-h-[70vh] w-auto object-contain drop-shadow-xl"
             />
           </div>
