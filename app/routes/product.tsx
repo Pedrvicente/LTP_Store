@@ -10,11 +10,11 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
 	const { product } = loaderData;
 	return (
     <div className="fixed inset-0 z-50 h-dvh w-screen bg-gray-50 overflow-y-auto p-6">
+
       <div className="absolute top-6 right-6 md:top-12 md:right-12 z-10">
         <Link 
           to="/" 
-          className="bg-black text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase hover:bg-gray-900 transition-colors"
-        >
+          className="bg-black text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase hover:bg-gray-900 transition-colors">
           Close
         </Link>
       </div>
@@ -58,11 +58,13 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
             </div>
 
           </div>
+
         </div>
 
         {/* Right Column*/}
-        {/* O flex-1 faz com que ela ocupe todo o espaço restante, e o flex center isola a garrafa/produto */}
+        {/* O flex-1 faz com que ela ocupe todo o espaço restante, e o flex center isola o produto */}
         <div className="flex-1 w-full flex items-center justify-center p-4 md:p-12">
+
           <div className="w-full max-w-md md:max-w-lg aspect-[3/4] flex items-center justify-center">
             <img
               src={product.thumbnail}
@@ -71,9 +73,11 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
               className="max-h-[70vh] w-auto object-contain drop-shadow-xl"
             />
           </div>
+
         </div>
 
       </main>
+
     </div>
   );
 }
