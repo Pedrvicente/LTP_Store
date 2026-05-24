@@ -23,7 +23,10 @@ export async function loader({ request }: Route.LoaderArgs) {
 
 export default function Home({loaderData}: Route.ComponentProps) {
   const page = loaderData.page_number;
+  const total_pages = loaderData.total_p;
   const next_page = page + 1;
+  const prev_page = page - 1;
+
   return (
     <main className="mx-auto px-6 py-8 mt-30">
       <h1 className="text-7xl font-bold mb-12">Our Products</h1>
@@ -32,9 +35,16 @@ export default function Home({loaderData}: Route.ComponentProps) {
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
-      <Link to={`?page=${next_page}`} className="group fixed right-6 flex bottom-10 z-60 items-center justify-center my-auto mt-12 px-6 py-4 w-20 rounded-full bg-[#EDE9E6] font-bold">
-        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-      </Link>
+      {page < total_pages && (
+        <Link to={`?page=${next_page}`} className="group fixed right-6 flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
+          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </Link>
+      )}
+      {page > 1 && (
+        <Link to={`?page=${prev_page}`} className="group fixed left-6 flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
+          <span className="transition-transform duration-300 group-hover:-translate-x-1">←</span>
+        </Link>
+      )}
     </main>
   )
 }

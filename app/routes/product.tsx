@@ -14,7 +14,7 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
       <div className="absolute top-6 right-6 md:top-12 md:right-12 z-10">
         <Link 
           to="/" 
-          className="bg-black text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase hover:bg-gray-900 transition-colors">
+          className="bg-[#EDE9E6] text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase hover:bg-[#BABF94] transition-colors">
           Close
         </Link>
       </div>
@@ -35,7 +35,7 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
               {product.title}
             </h1>
             
-            <button className="bg-black text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 hover:bg-gray-900 transition-colors">
+            <button className="bg-[#EDE9E6] border border-black/20 text-black px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 hover:bg-[#BABF94] hover:border-none transition-colors duration-300 ">
               Add to Cart ↗
             </button>
           </div>
