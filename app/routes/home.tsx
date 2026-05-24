@@ -1,7 +1,7 @@
 import type { Route } from "./+types/home";
 import { Link } from "react-router";
 import type { Product } from "../types"
-import  Header  from "../components/Header"
+import ProductCard from "../components/ProductCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,17 +18,13 @@ export async function loader() {
 
 export default function Home({loaderData}: Route.ComponentProps) {
   return (
-    <main>
-      <h1>Products</h1>
-      <ul>
+    <main className="mx-auto px-6 py-8">
+      <h1 className="text-xl font-bold">Our Products</h1>
+      <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
         {loaderData.products.map((p) => (
-          <li key={p.id}>
-            <Link to={`/products/${p.id}`}>
-              {p.title} — {p.price}€
-            </Link>
-          </li>
+          <ProductCard key={p.id} product={p} />
         ))}
-      </ul>
+      </div>
     </main>
   )
 }
