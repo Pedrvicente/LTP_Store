@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import type { Product } from "../types"
 import ProductCard from "../components/ProductCard";
 import CategoryDrawer from "~/components/CategoryDrawer";
@@ -28,11 +28,18 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export default function Home({loaderData}: Route.ComponentProps) {
+  const [searchParams] = useSearchParams();
   const page = loaderData.page_number;
   const total_pages = loaderData.total_p;
   const categories_list = loaderData.categories_list;
   const next_page = page + 1;
   const prev_page = page - 1;
+
+  function pageUrl(page: number) {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", String(page));
+    return `?${params.toString()}`;
+  }
 
   return (
     <main className="mx-auto px-6 py-8 mt-30">
@@ -52,12 +59,12 @@ export default function Home({loaderData}: Route.ComponentProps) {
 
       <div className="flex justify-between">
         {page > 1 && (
-          <Link to={`?page=${prev_page}`} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
+          <Link to={pageUrl(prev_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
             <span className="transition-transform duration-300 group-hover:-translate-x-1">←</span>
           </Link>
         )}
         {page < total_pages && (
-          <Link to={`?page=${next_page}`} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
+          <Link to={pageUrl(next_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         )}
