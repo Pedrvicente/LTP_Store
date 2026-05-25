@@ -9,7 +9,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 
 export default function ProductPage({ loaderData }: Route.ComponentProps) {
 	const { product } = loaderData;
-  const { incrementCart } = useCart();
+  const { addToCart } = useCart();
 	return (
     <div className="fixed inset-0 z-50 h-dvh w-screen bg-white overflow-y-auto p-6">
 
@@ -38,7 +38,7 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
               {product.title}
             </h1>
             
-            <button onClick={incrementCart} className="bg-[#F5F5F5] md:bg-[#FFD66B] text-black px-6 py-3 text-xs font-light uppercase tracking-widest inline-flex items-center gap-2 border border-black hover:bg-[#F5F5F5] transition-all duration-300 ">
+            <button onClick={() => addToCart(product)} className="bg-[#F5F5F5] md:bg-[#FFD66B] text-black px-6 py-3 text-xs font-light uppercase tracking-widest inline-flex items-center gap-2 border border-black hover:bg-[#F5F5F5] transition-all duration-300 ">
               Add to Cart ↗
             </button>
           </div>
