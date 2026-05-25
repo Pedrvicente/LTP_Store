@@ -17,7 +17,7 @@ export default function SortSelect() {
 
 	return (
 		<div className="relative w-full md:w-fit">
-			<select value={current_sort} onChange={(e) => changeSort(e.target.value)} className="w-full appearance-none bg-[#EDE9E6] text-black px-6 py-2.5 pr-12 rounded-full text-xs font-bold capitalize">
+			<select value={current_sort} onChange={(e) => changeSort(e.target.value)} className="w-full appearance-none bg-white border border-[#FFD66B] text-black px-6 py-2.5 pr-12 text-xs font-light capitalize transition-all duration-300 hover:bg-[#FFD66B]">
 				<option value="">Sort</option>
 				<option value="price-asc">Ascending Price</option>
 				<option value="price-desc">Descending Price</option>

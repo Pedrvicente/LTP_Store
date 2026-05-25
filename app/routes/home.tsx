@@ -58,7 +58,7 @@ export default function Home({loaderData}: Route.ComponentProps) {
         <SortSelect/>
       </div>
   
-      <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-x-[2px] gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
         {loaderData.products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
@@ -68,12 +68,12 @@ export default function Home({loaderData}: Route.ComponentProps) {
 
       <div className="flex justify-between">
         {page > 1 && (
-          <Link to={pageUrl(prev_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
+          <Link to={pageUrl(prev_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 border border-[#FFD66B] bg-white font-thin transition-all durantion-300 hover:bg-[#FFD66B]">
             <span className="transition-transform duration-300 group-hover:-translate-x-1">←</span>
           </Link>
         )}
         {page < total_pages && (
-          <Link to={pageUrl(next_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
+          <Link to={pageUrl(next_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 border border-[#FFD66B] bg-white font-thin transition-all durantion-300 hover:bg-[#FFD66B]">
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         )}
