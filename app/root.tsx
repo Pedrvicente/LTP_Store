@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "react-router";
 import Header from "./components/Header";
-import CategoryDrawer from "./components/CategoryDrawer";
+import { CartProvider } from "./context/CartContext";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -46,8 +46,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <>
-    <Header/>;
-    <Outlet/>;
+    <CartProvider>
+      <Header/>;
+      <Outlet/>;
+    </CartProvider>
     </>
   );
 
