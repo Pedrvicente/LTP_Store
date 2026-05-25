@@ -41,7 +41,7 @@ export default function CartPage() {
 				</div>
 				))}
 
-				<div className="w-full pt-4 flex justify-between items-center border-t/10 border-black font-bold uppercase">
+				<div className="w-full pt-4 flex justify-between items-center border-t border-black/10 font-bold uppercase">
 					<p>Total</p>
 					<p>€{totalPrice}</p>
 				</div>

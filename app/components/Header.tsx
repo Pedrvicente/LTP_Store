@@ -16,7 +16,7 @@ export default function Header() {
 				{/* Closed Menu */}
 				<div className="flex items-center justify-between bg-[#FFD66B] px-6 py-4 transition-all duration-250">
 					<span className="text-sm uppercase font-light">LTP Store</span>
-					<Link to="cart" className="font-light text-sm uppercase">Cart {cartCount}</Link>
+					<Link to="/cart" className="font-light text-sm uppercase">Cart {cartCount}</Link>
 					<button
 						onClick={() => setIsOpen(!isOpen)}
 						className="flex items-center gap-2 text-sm uppercase tracking-widest transition-all duration-300 hover:text-[#F5F5F5]"

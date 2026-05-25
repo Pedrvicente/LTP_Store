@@ -66,14 +66,14 @@ export default function Home({loaderData}: Route.ComponentProps) {
 
       <CategoryDrawer categories={categories_list}/>
 
-      <div className="flex justify-between">
+      <div className="flex">
         {page > 1 && (
-          <Link to={pageUrl(prev_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 border border-[#FFD66B] bg-white font-thin transition-all durantion-300 hover:bg-[#FFD66B]">
+          <Link to={pageUrl(prev_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">
             <span className="transition-transform duration-300 group-hover:-translate-x-1">←</span>
           </Link>
         )}
         {page < total_pages && (
-          <Link to={pageUrl(next_page)} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 border border-[#FFD66B] bg-white font-thin transition-all durantion-300 hover:bg-[#FFD66B]">
+          <Link to={pageUrl(next_page)} className="group ml-auto flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">
             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         )}

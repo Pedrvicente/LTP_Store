@@ -30,11 +30,11 @@ export default function ProductPage({ loaderData }: Route.ComponentProps) {
           
           {/* Title and Add to Cart Button */}
           <div className="mb-12">
-            <span className="text-xs font-light uppercase tracking-widest text-black block mb-1">
+            <span className="text-xs text-black font-light uppercase tracking-widest text-black block mb-1">
               Ltp Store
             </span>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl text-black md:text-5xl font-bold mb-6">
               {product.title}
             </h1>
             
