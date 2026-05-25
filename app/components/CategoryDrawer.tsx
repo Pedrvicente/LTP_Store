@@ -18,7 +18,6 @@ export default function CategoryDrawer({ categories }: { categories: string[]}) 
 						))}
 					</ul>
 				</div>
-
 				{/* Pega/seta (sempre visível) */}
 				<div className="cursor-pointer rounded-r-xl bg-[#EDE9E6] px-3 py-5 shadow-lg">→</div>
 			</div>

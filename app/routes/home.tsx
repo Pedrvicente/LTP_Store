@@ -4,6 +4,7 @@ import type { Product } from "../types"
 import ProductCard from "../components/ProductCard";
 import CategoryDrawer from "~/components/CategoryDrawer";
 import CategorySelect from "~/components/CategorySelect";
+import SortSelect from "~/components/SortSelect";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -16,10 +17,17 @@ export async function loader({ request }: Route.LoaderArgs) {
   const url = new URL(request.url);
   const page = Number(url.searchParams.get("page") ?? "1");
   const category = url.searchParams.get("category") ?? "";
+  // sort is a value of "field-direction"
+  const sort = url.searchParams.get("sort") ?? "";
+  const [field, direction] = sort.split("-");
   const base = category ? `https://dummyjson.com/products/category/${category}` : "https://dummyjson.com/products";
   const limit_per_page = 12;
   const skip = ((page - 1) * limit_per_page);
-  const res = await fetch(`${base}?limit=${limit_per_page}&skip=${skip}`);
+  let   fetchUrl = `${base}?limit=${limit_per_page}&skip=${skip}`;
+  if (sort) {
+    fetchUrl += `&sortBy=${field}&order=${direction}`;
+  }
+  const res = await fetch(fetchUrl);
   const data = await res.json();
   const res_categories = await fetch("https://dummyjson.com/products/category-list");
   const categories_list = await res_categories.json();
@@ -44,9 +52,10 @@ export default function Home({loaderData}: Route.ComponentProps) {
   return (
     <main className="mx-auto px-6 py-8 mt-30">
 
-      <div className="mb-12 flex flex-col">
+      <div className="mb-12 gap-5 flex flex-col md:flex-row md:justify-between md:items-center">
         <h1 className="mb-5 text-7xl font-bold">Our Products</h1>
         <CategorySelect categories={categories_list}/>
+        <SortSelect/>
       </div>
   
       <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
