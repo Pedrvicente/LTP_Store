@@ -11,7 +11,7 @@ export default function CategoryDrawer({ categories }: { categories: string[]}) 
 						<li><Link to="/" className="hover:text-[#BABF94]">All</Link></li>
 						{categories.map((cat) => (
 						<li key={cat}>
-							<Link to={`?category=${cat}`} className="capitalize font-medium hover:text-[#BABF94]">
+							<Link to={`?category=${cat}`} className="capitalize font-medium transition-all duration-300 hover:text-[#BABF94]">
 							{cat.replace("-", " ")}
 							</Link>
 						</li>

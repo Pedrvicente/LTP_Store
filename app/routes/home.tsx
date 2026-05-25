@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import type { Product } from "../types"
 import ProductCard from "../components/ProductCard";
 import CategoryDrawer from "~/components/CategoryDrawer";
+import CategorySelect from "~/components/CategorySelect";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -35,13 +36,20 @@ export default function Home({loaderData}: Route.ComponentProps) {
 
   return (
     <main className="mx-auto px-6 py-8 mt-30">
-      <h1 className="text-7xl font-bold mb-12">Our Products</h1>
+
+      <div className="mb-12 flex flex-col">
+        <h1 className="mb-5 text-7xl font-bold">Our Products</h1>
+        <CategorySelect categories={categories_list}/>
+      </div>
+  
       <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
         {loaderData.products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
+
       <CategoryDrawer categories={categories_list}/>
+
       <div className="flex justify-between">
         {page > 1 && (
           <Link to={`?page=${prev_page}`} className="group flex bottom-10 z-60 items-center justify-center my-auto mt-12 h-15 w-15 rounded-full bg-[#EDE9E6] font-bold hover:bg-[#BABF94]">
