@@ -20,12 +20,12 @@ export default function CartPage() {
 				</div>
 			) : (
 			// If cart has items 
-			<div className="flex flex-col gap-4 items-center">
+			<div className="flex flex-col gap-4">
 				{cartItems.map((item) => (
-				<div key={item.product.id} className="w-full flex gap-3 justify-between items-center border-b border-black/10 pb-4 text-sm">
-					<div className="flex items-center gap-3">
+				<div key={item.product.id} className="w-full flex flex-col md:flex-row items-start md:items-center gap-3 justify-between border-b border-black/10 pb-4 text-sm">
+					<div className="flex items-normal md:items-center gap-3">
 						<img src={item.product.thumbnail} alt={item.product.title} className="h-20 w-20 object-contain"/>
-						<div>
+						<div className="flex flex-row md:flex-col">
 							<h3 className="font-medium uppercase">{item.product.title}</h3>
 							<p className="font-light text-xs">€{item.product.price}</p>
 						</div>

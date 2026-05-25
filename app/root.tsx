@@ -47,8 +47,8 @@ export default function App() {
   return (
     <>
     <CartProvider>
-      <Header/>;
-      <Outlet/>;
+      <Header/>
+      <Outlet/>
     </CartProvider>
     </>
   );
