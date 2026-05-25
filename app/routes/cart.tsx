@@ -32,9 +32,9 @@ export default function CartPage() {
 					</div>
 					<p className="font-bold">€{item.product.price * item.quantity}</p>
 					<div className="flex gap-3 items-center">
-						<button onClick={() => addToCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all durantion-300 hover:bg-[#FFD66B]">+</button>
+						<button onClick={() => addToCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">+</button>
 						<p className="font-light text-sm">{item.quantity}</p>
-						<button onClick={() => deleteFromCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all durantion-300 hover:bg-[#FFD66B]">-</button>
+						<button onClick={() => deleteFromCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">-</button>
 					</div>
 				</div>
 				))}
