@@ -23,23 +23,25 @@ export default function CartPage() {
 			<div className="flex flex-col gap-4">
 				{cartItems.map((item) => (
 				<div key={item.product.id} className="w-full flex flex-col md:flex-row items-start md:items-center gap-3 justify-between border-b border-black/10 pb-4 text-sm">
-					<div className="flex items-normal md:items-center gap-3">
+					<div className="w-full md:w-1/4 flex items-normal md:items-center gap-3">
 						<img src={item.product.thumbnail} alt={item.product.title} className="h-20 w-20 object-contain"/>
-						<div className="flex flex-row md:flex-col">
-							<h3 className="font-medium uppercase">{item.product.title}</h3>
+						<div className="flex flex-row md:flex-col justify-between w-3/4">
+							<h3 className="w-3/4 font-medium uppercase">{item.product.title}</h3>
 							<p className="font-light text-xs">€{item.product.price}</p>
 						</div>
 					</div>
-					<p className="font-bold">€{item.product.price * item.quantity}</p>
-					<div className="flex gap-3 items-center">
-						<button onClick={() => addToCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">+</button>
-						<p className="font-light text-sm">{item.quantity}</p>
-						<button onClick={() => deleteFromCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">-</button>
+					<div className="w-full md:w-2/4 flex items-center justify-between">
+						<p className="font-light">€{item.product.price * item.quantity}</p>
+						<div className="flex gap-3 items-center">
+							<button onClick={() => deleteFromCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">-</button>
+							<p className="font-light text-sm">{item.quantity}</p>
+							<button onClick={() => addToCart(item.product)} className="h-10 w-10 border border-[#FFD66B] bg-white font-thin transition-all duration-300 hover:bg-[#FFD66B]">+</button>
+						</div>
 					</div>
 				</div>
 				))}
 
-				<div className="w-full pt-4 flex justify-between items-center border-t-2 border-black font-bold uppercase">
+				<div className="w-full pt-4 flex justify-between items-center border-t/10 border-black font-bold uppercase">
 					<p>Total</p>
 					<p>€{totalPrice}</p>
 				</div>
